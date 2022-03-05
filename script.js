@@ -66,45 +66,59 @@ function computersTurn(event) {
         if (x == "a3") {
             if (!checkTriplet(a3, b3, c3)) {
                 if (!checkTriplet(a3, b2, c1)) {
-                    checkTriplet(a3, a2, a1);
+                    if (!checkTriplet(a3, a2, a1)) {
+                        return false
+                    }
                 }
             }
         }
         else if (x == "b3") {
             if (!checkTriplet(b3, a3, c3)) {
-                checkTriplet(b3, b2, b1);
+                if (!checkTriplet(b3, b2, b1)) {
+                    return false
+                }
             }
         }
         else if (x == "c3") {
             if (!checkTriplet(c3, b3, a3)) {
                 if (!checkTriplet(c3, c2, c1)) {
-                    checkTriplet(c3, b2, a1)
+                    if (!checkTriplet(c3, b2, a1)) {
+                        return false
+                    }
                 }
             }
         }
         else if (x == "a2") {
             if (!checkTriplet(a2, a3, a1)) {
-                checkTriplet(a2, b2, c2);
+                if (!checkTriplet(a2, b2, c2)) {
+                    return false
+                }
             }
         }
         else if (x == "b2") {
             if (!checkTriplet(b2, b1, b3)) {
                 if (!checkTriplet(b2, a2, c2)) {
                     if (!checkTriplet(b2, a3, c1)) {
-                        checkTriplet(b2, c3, a1);
+                        if (!checkTriplet(b2, c3, a1)) {
+                            return false
+                        }
                     }
                 }
             }
         }
         else if (x == "c2") {
             if (!checkTriplet(c2, c3, c1)) {
-                checkTriplet(c2, b2, a2);
+                if (!checkTriplet(c2, b2, a2)) {
+                    return false
+                }
             }
         }
         else if (x == "a1") {
             if (!checkTriplet(a1, b1, c1)) {
                 if (!checkTriplet(a1, b2, c3)) {
-                    checkTriplet(a1, a2, a3);
+                    if (!checkTriplet(a1, a2, a3)) {
+                        return false
+                    }
                 }
             }
         }
@@ -116,10 +130,13 @@ function computersTurn(event) {
         else if (x == "c1") {
             if (!checkTriplet(c1, b1, a1)) {
                 if (!checkTriplet(c1, c2, c3)) {
-                    checkTriplet(c1, b2, a3)
+                    if (!checkTriplet(c1, b2, a3)) {
+                        return false
+                    }
                 }
             }
         }
+        return true;
     }
     function attack() {
         x = plays[i - 2];
@@ -680,7 +697,9 @@ function computersTurn(event) {
             // corner and close side
             else {
                 if (!attack()) {
-                    playAny();
+                    if (!defend()) {
+                        playAny();
+                    }
                 }
             }
     }
