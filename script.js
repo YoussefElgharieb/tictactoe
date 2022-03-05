@@ -43,7 +43,7 @@ function computersTurn(event) {
         }, 50);
 
         plays[i] = slot.id;
-        markAsPlayed(slot);
+        markAsPlayed(slot,"o");
     }
 
     function defend() {
@@ -52,7 +52,7 @@ function computersTurn(event) {
                 play(c);
                 return true;
             }
-            else if (a.classList.contains("x") == c.classList.contains("x")&& b.innerHTML == "") {
+            else if (a.classList.contains("x") && c.classList.contains("x")&& b.innerHTML == "") {
                 play(b);
                 return true;
             }
@@ -87,6 +87,15 @@ function computersTurn(event) {
                 checkTriplet(a2, b2, c2);
             }
         }
+        else if (x == "b2") {
+            if (!checkTriplet(b2, b1, b3)) {
+                if (!checkTriplet(b2, a2, c2)) {
+                    if (!checkTriplet(b2, a3, c1)) {
+                        checkTriplet(b2, c3, a1);
+                    }
+                }
+            }
+        }
         else if (x == "c2") {
             if (!checkTriplet(c2, c3, c1)) {
                 checkTriplet(c2, b2, a2);
@@ -115,12 +124,12 @@ function computersTurn(event) {
     function attack() {
         x = plays[i - 2];
         function checkTriplet(a, b, c) {
-            if (a.classList.contains("x") == b.classList.contains("x") && c.innerHTML == "") {
+            if (a.classList.contains("o") && b.classList.contains("o") && c.innerHTML == "") {
                 play(c);
                 lost();
                 return true;
             }
-            else if (a.classList.contains("x") == c.classList.contains("x") && b.innerHTML == "") {
+            else if (a.classList.contains("o") && c.classList.contains("o") && b.innerHTML == "") {
                 play(b);
                 lost();
                 return true;
@@ -159,6 +168,17 @@ function computersTurn(event) {
             if (!checkTriplet(a2, a3, a1)) {
                 if (!checkTriplet(a2, b2, c2)) {
                     return false
+                }
+            }
+        }
+        else if (x == "b2") {
+            if (!checkTriplet(b2, a3, c1)) {
+                if (!checkTriplet(b2, c3, a1)) {
+                    if (!checkTriplet(b2, b1, b3)) {
+                        if (!checkTriplet(b2, a2, c2)) {
+                            return false
+                        }
+                    }
                 }
             }
         }
@@ -717,7 +737,7 @@ function didWin(place, x) {
         }
     }
     function threeInC(x) {
-        if (a1.classList.contains(x) && c2.classList.contains(x) && c3.classList.contains(x) ) {
+        if (c1.classList.contains(x) && c2.classList.contains(x) && c3.classList.contains(x) ) {
             return true
         }
     }
