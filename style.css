@@ -1,0 +1,218 @@
+button {
+    border: none;
+}
+
+@font-face {
+    font-family: 'discopiaregular';
+    src: url('discopia_regular-webfont.woff2') format('woff2'),
+         url('discopia_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+* {
+    font-family: discopiaregular;
+}
+/*layout*/
+.l-centerAlign {
+    text-align: center;
+}
+.l-middle {
+    vertical-align: middle;
+}
+.l-grid-container {
+    display: grid;
+}
+.l-3_col {
+    grid-template-columns: repeat(3,1fr);
+}
+
+.l-2_col {
+    grid-template-columns: repeat(2,1fr);
+}
+
+
+
+body {
+    background-color: #271959;
+}
+
+
+#title {
+    font-family: discopiaregular;
+    color: #F03CBA;
+    text-shadow: 2px 2px #271959, 4px 4px #3C79F0;
+}
+@media screen and (orientation: portrait) and (max-width:450px){
+    #title {
+        font-size: 10vw;
+    }
+}
+@media screen and (min-width: 450px) {
+    #title {
+        font-size: 6vh;
+    }
+}
+
+/*board*/
+#board {
+    cursor: pointer;
+    margin:auto;
+}
+@media screen and (orientation:portrait) and (max-width:450px) {
+    #board {
+        width: 90vw;
+        height: 90vw;
+        position: fixed;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media screen and (min-width:450px) {
+    #board {
+        box-sizing: border-box;
+        width: 66vh;
+        height: 66vh;
+        margin: auto;
+
+    }
+}
+
+
+.place {
+    background-color: #1F1447;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (orientation:portrait) and (max-width:450px) {
+    .place {
+        width:28vw;
+        height:28vw;
+        margin: 1vw;
+    }
+    img {
+        width:30vw;
+    }
+}
+
+@media screen and (min-width:450px) {
+    .place {
+        height: 20vh;
+        width: 20vh;
+        margin: 1vh;
+    }
+    img {
+        width:20vh;
+    }
+}
+
+
+/*modules*/
+    /*toggle button*/
+.toggle_button {
+    box-sizing: border-box;
+    margin:auto;
+    margin-top: 2vh;
+}
+
+@media screen and (orientation:portrait) and (max-width:450px) {
+    .toggle_button {
+        width:88vw;
+        height: 8vw;
+        position: fixed;
+        bottom: 16vw;
+        left:50%;
+        transform: translate(-50%,0);
+        
+    }
+}
+
+@media screen and (min-width: 450px) {
+    .toggle_button {
+        width:64vh;
+        height: 10vh;
+    }
+}
+
+.toggle_button  div {
+    box-sizing: border-box;
+    line-height: 8vh;
+    font-family: discopiaregular;
+    font-size: 5vmin;
+    transition: 100ms ease-in-out;
+}
+
+.active_toggle {
+    color: #271959;
+    background-color: #3C79F0;
+    border: 5px solid #3C79F0;
+    
+}
+
+.inactive_toggle {
+    box-sizing: border-box;
+    color: #3C79F0;
+    border: 5px solid #3C79F0;
+}
+
+    /*pop-up*/
+.pop-up {
+    z-index: 10;
+    position: fixed;
+    top:50%;
+    left: 50%;
+    transform: translate(-50% ,-50%) scale(0);
+    transition: 200ms ease-in-out;
+    width:80%;
+    height: 35vh;
+    max-width: 400px;
+    max-height: 400px;
+    background-color: #271959;
+    box-shadow: 0px 24px 24px 0px #00000044;
+    color: #F03CBA;
+    
+    box-sizing: border-box;
+    padding-top: 6vh;
+}
+
+img {
+    transform: scale(0);
+    transition: 100ms ease-in-out;
+}
+img.final {
+    transform: scale(1);
+}
+
+.pop-up.active {
+    transform: translate(-50% ,-50%) scale(1);
+}
+.pop-up p{
+    font-size: 1.5em;
+}
+.pop-up button {
+    background-color: #F03CBA;
+    color:#271959;
+    width:fit-content ;
+    padding: 16px 24px;
+    font-size: 1.5em;
+}
+
+#overlay {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0%;
+    pointer-events: none;
+    transition: 100ms ease-in-out;
+}
+#overlay.active {
+    opacity: 70%;
+    pointer-events: all;
+}
