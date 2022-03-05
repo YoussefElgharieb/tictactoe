@@ -350,6 +350,13 @@ function computersTurn(event) {
                 play(a1);
                 lost()
             }
+            else if (plays[0] == "b2" && plays[2] == "a2" && plays[4] == "c1") {
+                play(a1);
+            }
+            else if (plays[0] == "b2" && plays[2] == "b3" && plays[4] == "c1") {
+                play(c3);
+            }
+
             // close sides
             // bottom side and left side
             else if (plays[0] == "b1" && plays[2] == "a2" || plays[0] == "a2" && plays[2] == "b1") {
