@@ -124,7 +124,9 @@ function computersTurn(event) {
         }
         else if (x == "b1") {
             if (!checkTriplet(b1, a1, c1)) {
-                checkTriplet(b1, b2, b3);
+                if(!checkTriplet(b1, b2, b3)) {
+                    return false
+                }
             }
         }
         else if (x == "c1") {
