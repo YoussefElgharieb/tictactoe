@@ -648,9 +648,9 @@ function computersTurn(event) {
                 }
             }
             // corner and close corner
-            else if (plays[0] == "a3" && plays[2] == "c3" || plays[0] == "c3" && plays[2] == "a3" || plays[0] == "a1" && plays[2] == "c1" || plays[0] == "c1" && plays[2] == "a1" || plays[0] == "a3" && plays[2] == "a1" || plays[0] == "a1" && plays[2] == "a3" || plays[0] == "c3" && plays[2] == "c1" || plays[0] == "c1" && plays[2] == "c3") {
-                defend()
-            }
+            //else if (plays[0] == "a3" && plays[2] == "c3" || plays[0] == "c3" && plays[2] == "a3" || plays[0] == "a1" && plays[2] == "c1" || plays[0] == "c1" && plays[2] == "a1" || plays[0] == "a3" && plays[2] == "a1" || plays[0] == "a1" && plays[2] == "a3" || plays[0] == "c3" && plays[2] == "c1" || plays[0] == "c1" && plays[2] == "c3") {
+            //    defend()
+            //}
             // corner and far side
             // top left corner and right side
             // bottom right corner and top side
