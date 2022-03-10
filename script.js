@@ -612,7 +612,7 @@ function computersTurn(event) {
                     lost()
                 }
                 else {
-                    play(c2);
+                    play(c3);
                     lost()
                 }
             }
